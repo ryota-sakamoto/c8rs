@@ -1,0 +1,7 @@
+[package]
+name = "c8rs"
+version = "0.1.0"
+authors = ["Ryota Sakamoto <sakamo.ryota+github@gmail.com>"]
+edition = "2018"
+
+[dependencies]
