@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function t() {
-    target/debug/c8rs $2 > tmp.s
+    target/debug/c8rs "$2" > tmp.s
     gcc -o tmp tmp.s
     ./tmp
 
@@ -14,5 +14,6 @@ cargo build
 
 t 1 1
 t 21 "5+20-4"
+t 41 " 12 + 34 - 5 "
 
 rm -rf tmp tmp.s

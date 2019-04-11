@@ -1,6 +1,5 @@
 use std::{
     env::args,
-    collections::VecDeque,
 };
 
 fn main() {
@@ -55,7 +54,7 @@ fn main() {
 
 #[derive(Debug)]
 enum TokenType {
-    TK_EOF,
+    TK_UNKNOWN,
     TK_NUMBER(u8),
     TK_PLUS,
     TK_MINUS,
@@ -101,7 +100,13 @@ fn tokenize(line: &str) -> Vec<Token> {
                     token_type: TK_MINUS,
                 });
             },
-            _ => return result,
+            None => return result,
+            _ => {
+                iter.next();
+                // result.push(Token {
+                //     token_type: TK_UNKNOWN,
+                // })
+            },
         }
     }
 }
